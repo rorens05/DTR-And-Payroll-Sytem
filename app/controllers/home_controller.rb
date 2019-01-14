@@ -19,19 +19,26 @@ class HomeController < ApplicationController
         redirect_to home_login_path
       end
     end
-
   end
 
   def home
-    check_day = DayType.all.where(date_created: Date.today.to_s).first
-    if check_day.blank? & session[:employee_id]
-      day = DayType.new
-      day.regular = true
-      day.date_created = Date.today.to_s
-      day.user_id = session[:employee_id]
-      day.save
+    if session[:employee_id]
+      check_day = DayType.all.where(date_created: Date.today.to_s).first
+      if check_day.blank?
+        day = DayType.new
+        day.regular = true
+        day.date_created = Date.today.to_s
+        day.user_id = session[:employee_id]
+        day.save
+      end    
+    else
+      flash[:notice] = "Please Login"
+      redirect_to home_login_path
     end
+  end
 
-    
+  def clear_employee
+    session[:employee_id] = nil
+    redirect_to home_login_path
   end
 end

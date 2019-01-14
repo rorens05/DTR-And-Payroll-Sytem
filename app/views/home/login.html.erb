@@ -1,14 +1,4 @@
-<nav class="navbar navbar-light" style="background-color: #e3f2fd;">
-  <a class="navbar-brand" href="#">
-    <img src="/images/logo.png" width="50px" height="50px" alt="">
-    <span class="navbar-text">
-        AEB DTR And Payroll System
-    </span>
-  </a>
-  <span class="title">
-    <%= link_to 'Login as Admin', access_login_path %>
-  </span>
-</nav>
+<%# render 'nav' %>
 
 <div class="row margin-top-increase">
   <div class="col-md-4 offset-md-4">
@@ -20,7 +10,7 @@
     <p class="lead">Please swipe your card to start the system</p>
     <hr class="my-2">
     <%= form_tag( :action => "validate_login") do %>  
-      <input type="password" class="hidden-rfid" id="rfidinput" name="rfid" autofocus />
+      <input type="password" class="hidden-rfid" id="rfidinput" name="rfid" autofocus value=""/>
       <%= submit_tag "Forward", class: "hidden-rfid" %>    
     <% end %> 
   </div>
