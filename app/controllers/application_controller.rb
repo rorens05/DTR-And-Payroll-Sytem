@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
 
-  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout]
+  before_action :confirm_logged_in, :except => [:login, :attempt_login, :logout, :validate_login, :home]
  
   private
   

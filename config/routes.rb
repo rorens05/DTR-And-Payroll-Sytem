@@ -1,4 +1,11 @@
 Rails.application.routes.draw do
+  root 'home#login' 
+
+  get 'home/login'
+  get 'home/index'
+  get 'home/home'
+  post 'home/validate_login'
+
   get 'admin', to: "dashboard#index"
   get 'login', to: "access#login"
 
@@ -9,7 +16,6 @@ Rails.application.routes.draw do
   get 'dashboard/index'
   get 'css_sample/index'
   get 'css_sample/home'
-  root 'css_sample#index'
 
   resources :deduction_details
   resources :deductions

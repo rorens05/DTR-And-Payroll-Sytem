@@ -41,6 +41,7 @@ gem 'bootsnap', '>= 1.1.0', require: false
 gem 'bootstrap', '~> 4.2.1'
 gem 'awesome_print', '~> 1.8'
 gem "font-awesome-rails"
+gem 'jquery-rails', '~> 4.0', '>= 4.0.5'
 # gem 'bootstrap', '~> 4.2.1'
 
 group :development, :test do

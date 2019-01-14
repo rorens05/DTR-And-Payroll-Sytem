@@ -1,4 +1,4 @@
-body{
+body, html{
   margin:0;
   border: 1px dotted white;
   background-color: white;
@@ -8,6 +8,9 @@ body{
   border: 1px dotted red
 }
 
+.navbar-brand .title{
+  float:right
+}
 
 .sidebar{
   position: fixed;
@@ -20,6 +23,21 @@ body{
   margin: 0;
   padding: 0;
   
+}
+
+.hidden-rfids{
+  overflow: hidden;
+  border: 1px solid white;
+  height: 1px;
+  width: 1px;
+}
+
+.margin-top-increase{
+  margin-top: 50px !important;
+}
+
+.notice{
+  color:red;
 }
 
 .sidebar h3{

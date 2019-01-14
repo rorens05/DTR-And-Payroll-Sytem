@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require rails-ujs
+//= require jquery2
 //= require activestorage
 //= require turbolinks
 //= require bootstrap
