@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @salary_type.name %>
+</p>
+
+<p>
+  <strong>Hourly rate:</strong>
+  <%= @salary_type.hourly_rate %>
+</p>
+
+<p>
+  <strong>Daily rate:</strong>
+  <%= @salary_type.daily_rate %>
+</p>
+
+<p>
+  <strong>Overtime rate:</strong>
+  <%= @salary_type.overtime_rate %>
+</p>
+
+<%= link_to 'Edit', edit_salary_type_path(@salary_type) %> |
+<%= link_to 'Back', salary_types_path %>

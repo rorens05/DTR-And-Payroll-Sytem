@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Day Types</h1>
+<hr>
+<table class="model-information">
+  <thead>
+    <tr>
+      <th>Day Type</th>
+      <th>Date created</th>
+      <th>User</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @day_types.each do |day_type| %>
+      <tr>
+        <td><%= day_type.regular ? "Regular Day" : "Holiday" %></td>
+        <td><%= day_type.date_created %></td>
+        <td><%= day_type.user_id %></td>
+        <td><%= link_to 'Show', day_type %></td>
+        <td><%= link_to 'Edit', edit_day_type_path(day_type) %></td>
+        <td><%= link_to 'Destroy', day_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Day Type', new_day_type_path %>

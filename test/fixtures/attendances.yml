@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  time_in: 2019-01-07 15:29:47
+  time_out: 2019-01-07 15:29:47
+  employee_id: 1
+  day_type: 1
+
+two:
+  time_in: 2019-01-07 15:29:47
+  time_out: 2019-01-07 15:29:47
+  employee_id: 1
+  day_type: 1

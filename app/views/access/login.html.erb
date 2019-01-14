@@ -1,0 +1,22 @@
+<div class="login">
+  <h1>Login</h1>
+  <%= form_tag access_attempt_login_path, method: 'post' do %>
+    <p>
+      <% if flash[:notice].present? %>
+        <%= flash[:notice] %>
+      <% end %>
+    </p>
+    <table>
+      <tr>
+        <th><%= label_tag(:email) %></th>
+        <td><%= text_field_tag(:email, params[:email]) %></td>
+      </tr>
+      <tr>
+        <th><%= label_tag(:password) %></th>
+        <td><%= password_field_tag(:password) %></td>
+      </tr>
+        <td>&nbsp;</td>
+        <td><%= submit_tag "login", class: "btn btn-primary" %></td>
+    </table>
+  <% end %>
+</div>

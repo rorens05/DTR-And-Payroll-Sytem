@@ -1,0 +1,24 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @department.name %>
+</p>
+
+<p>
+  <strong>Manager:</strong>
+  <%= @department.manager %>
+</p>
+
+<p>
+  <strong>Start time:</strong>
+  <%= @department.start_time.strftime("%I:%M %p") %>
+</p>
+
+<p>
+  <strong>End time:</strong>
+  <%= @department.end_time.strftime("%I:%M %p") %>
+</p>
+
+<%= link_to 'Edit', edit_department_path(@department) %> |
+<%= link_to 'Back', departments_path %>

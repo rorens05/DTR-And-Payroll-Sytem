@@ -1,0 +1,89 @@
+
+<div class="jumbotron form-center">
+<%= form_with(model: employee, local: true) do |form| %>
+  <% if employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(employee.errors.count, "error") %> prohibited this employee from being saved:</h2>
+      <ul>
+      <% employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :image %>
+    <%= form.file_field :image, class: "form-control-file" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :name %>
+    <%= form.text_field :name, class: "form-control" %>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :address %>
+    <%= form.text_field :address, class: "form-control"  %>
+  </div>
+
+ <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :gender %>
+        <%= form.text_field :gender, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :contact_no %>
+        <%= form.text_field :contact_no, class: "form-control"  %>
+      </div>  
+    </div>
+  </div> 
+
+  <div class="form-group">
+    <%= form.label :email %>
+    <%= form.text_field :email, class: "form-control"  %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :position %>
+        <%= form.text_field :position, class: "form-control"  %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :rfid_code %>
+        <%= form.text_field :rfid_code, class: "form-control"  %>
+      </div>
+    </div>
+  </div>
+
+  <div class="form-group">
+    <%= form.label :hire_date %>
+    <%= form.date_field :hire_date, class: "form-control" %>
+  </div>
+
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :salary_type_id %>
+        <%= form.select :salary_type_id, @salaries.map{ |s| [s.name, s.id]}, {}, {class: "form-control"} %>
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <div class="form-group">
+        <%= form.label :department_id %>
+        <%= form.select :department_id, @departments.map{ |d| [d.name, d.id]}, {}, {class: "form-control"} %>
+      </div>    
+    </div>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
+</div>

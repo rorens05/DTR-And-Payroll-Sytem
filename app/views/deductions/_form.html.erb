@@ -1,0 +1,27 @@
+<%= form_with(model: deduction, local: true) do |form| %>
+  <% if deduction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(deduction.errors.count, "error") %> prohibited this deduction from being saved:</h2>
+
+      <ul>
+      <% deduction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :deduction_id %>
+    <%= form.number_field :deduction_id %>
+  </div>
+
+  <div class="field">
+    <%= form.label :salary_id %>
+    <%= form.number_field :salary_id %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

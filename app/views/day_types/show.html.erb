@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Regular:</strong>
+  <%= @day_type.regular %>
+</p>
+
+<p>
+  <strong>Date created:</strong>
+  <%= @day_type.date_created %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @day_type.user_id %>
+</p>
+
+<%= link_to 'Edit', edit_day_type_path(@day_type) %> |
+<%= link_to 'Back', day_types_path %>

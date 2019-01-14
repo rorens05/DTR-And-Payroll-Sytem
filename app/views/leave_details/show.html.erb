@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @leave_detail.name %>
+</p>
+
+<p>
+  <strong>Is payed:</strong>
+  <%= @leave_detail.is_payed %>
+</p>
+
+<p>
+  <strong>Number of days:</strong>
+  <%= @leave_detail.number_of_days %>
+</p>
+
+<%= link_to 'Edit', edit_leave_detail_path(@leave_detail) %> |
+<%= link_to 'Back', leave_details_path %>

@@ -1,0 +1,32 @@
+<%= form_with(model: leave_detail, local: true) do |form| %>
+  <% if leave_detail.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(leave_detail.errors.count, "error") %> prohibited this leave_detail from being saved:</h2>
+
+      <ul>
+      <% leave_detail.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :is_payed %>
+    <%= form.check_box :is_payed %>
+  </div>
+
+  <div class="field">
+    <%= form.label :number_of_days %>
+    <%= form.number_field :number_of_days %>
+  </div>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

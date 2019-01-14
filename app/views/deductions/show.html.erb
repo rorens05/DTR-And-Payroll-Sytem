@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Deduction:</strong>
+  <%= @deduction.deduction_id %>
+</p>
+
+<p>
+  <strong>Salary:</strong>
+  <%= @deduction.salary_id %>
+</p>
+
+<%= link_to 'Edit', edit_deduction_path(@deduction) %> |
+<%= link_to 'Back', deductions_path %>

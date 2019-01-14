@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+<hr>
+<table class="model-information">
+
+<table>
+  <thead>
+    <tr>
+      <th>Deduction</th>
+      <th>Salary</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @deductions.each do |deduction| %>
+      <tr>
+        <td><%= deduction.deduction_id %></td>
+        <td><%= deduction.salary_id %></td>
+        <td><%= link_to 'Show', deduction %></td>
+        <td><%= link_to 'Edit', edit_deduction_path(deduction) %></td>
+        <td><%= link_to 'Destroy', deduction, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Deduction', new_deduction_path %>

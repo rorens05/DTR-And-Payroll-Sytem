@@ -1,0 +1,33 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Salary Types</h1>
+<hr>
+<table class="model-information">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Hourly rate</th>
+      <th>Daily rate</th>
+      <th>Overtime rate</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @salary_types.each do |salary_type| %>
+      <tr>
+        <td><%= salary_type.name %></td>
+        <td><%= salary_type.hourly_rate %></td>
+        <td><%= salary_type.daily_rate %></td>
+        <td><%= salary_type.overtime_rate %></td>
+        <td><%= link_to 'Show', salary_type %></td>
+        <td><%= link_to 'Edit', edit_salary_type_path(salary_type) %></td>
+        <td><%= link_to 'Destroy', salary_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Salary Type', new_salary_type_path %>

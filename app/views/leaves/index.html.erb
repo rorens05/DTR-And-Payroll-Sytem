@@ -1,0 +1,31 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Leaves</h1>
+<hr>
+<table class="model-information">
+  <thead>
+    <tr>
+      <th>Employee</th>
+      <th>Leave details</th>
+      <th>Date stated</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @leaves.each do |leafe| %>
+      <tr>
+        <td><%= link_to leafe.employee.name, employee_path(leafe.employee) %></td>
+        <td><%= leafe.leave_details_id %></td>
+        <td><%= leafe.date_stated %></td>
+        <td><%= link_to 'Show', leafe %></td>
+        <td><%= link_to 'Edit', edit_leafe_path(leafe) %></td>
+        <td><%= link_to 'Destroy', leafe, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Leafe', new_leafe_path %>

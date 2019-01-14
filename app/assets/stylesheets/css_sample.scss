@@ -1,0 +1,160 @@
+body{
+  margin:0;
+  border: 1px dotted white;
+  background-color: white;
+}
+
+.box{
+  border: 1px dotted red
+}
+
+
+.sidebar{
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+  
+  border-left: 1px solid gray;
+  background-color: #DDDDDD;
+  width: 300px;
+  margin: 0;
+  padding: 0;
+  
+}
+
+.sidebar h3{
+  margin-left: 0.4em;
+  height: 60px;
+  border-bottom: 1px solid gray;
+  padding-top: 12px;
+}
+
+
+.sidebar .icon{
+  margin: auto 1em;
+}
+
+.sidebar ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.sidebar ul li a{
+  display: block;
+  background-color: #DDDDDD;
+  text-decoration: none;
+  color: black;
+  height: 55px;
+  padding: 15px;
+  font-size: 20px;
+  
+}
+
+.sidebar ul li a:hover{
+  background-color: #01FF70;
+  color: black;
+}
+
+.content{
+  margin-left: 300px;
+  height: 100%;
+  overflow-x: auto;
+}
+
+.content .header{
+  height: 60px;
+  width: 100%;
+  border-bottom: 1px solid gray;
+  padding-top: 15px;
+}
+
+.notification{
+  float: right;
+  margin-right: 1em;
+  font-size: 2vh;
+}
+
+.notification a{
+  color:black
+}
+
+@media screen and (max-width: 900px) {
+  .sidebar {
+    width: 75px;
+  }
+
+  .sidebar .icon{
+    margin-left: 10px;
+  }
+
+  .sidebar .desc {
+    display: none;
+  }
+  
+  div.content {margin-left: 75px;}
+}
+
+//custom
+table.model-information{
+  width: 80%;
+  margin: 0 auto;
+}
+
+table.model-information, table.model-information tr,
+table.model-information th, table.model-information td
+{
+  border: 1px solid gray;
+  padding: 5px;
+}
+
+table.model-information tr:hover{
+  background-color: #f5f5f5;
+}
+
+table.model-information th{
+  background-color: green;
+  color: white;
+}
+
+.form-center{
+  max-width: 800px;
+  width: 100%;
+  margin: 0 auto;
+}
+
+.display-inline{
+  color: red; height: 500px;
+}
+
+.login{
+  width: 100%;
+  max-width: 500px;
+  margin: 100px auto;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+
+.login form{
+  margin: 2em;
+}
+
+.login table{
+  width: 100%;
+}
+
+.login input{
+  width: 100%;
+}
+
+.login h1{
+  margin: 0;
+  padding: 0;
+  text-align: center;
+  background-color: blue;
+  color: white;
+}
+
+.login p{
+  color: red;
+}

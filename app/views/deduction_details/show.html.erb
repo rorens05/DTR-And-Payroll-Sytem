@@ -1,0 +1,19 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @deduction_detail.name %>
+</p>
+
+<p>
+  <strong>Percentage:</strong>
+  <%= @deduction_detail.percentage %>
+</p>
+
+<p>
+  <strong>Fixed deduction:</strong>
+  <%= @deduction_detail.fixed_deduction %>
+</p>
+
+<%= link_to 'Edit', edit_deduction_detail_path(@deduction_detail) %> |
+<%= link_to 'Back', deduction_details_path %>

@@ -1,0 +1,39 @@
+html, body{
+  font-family: "open sans", "Helvetica Neue", Arial, Helvetica, sans-serif;
+  background-color: #f3f3f4;
+  color: #676a6c;
+} 
+
+#side-menu{
+  background-color: #2f4050;
+  //border: 1px solid #2f4050;
+
+  margin: 0;
+  padding: 0
+}
+
+#side-menu h1{
+  text-align: center;
+  color: #00c281;
+  margin: 10px 0 10px 0;
+  font-size: 25px;
+}
+
+.box{
+  border: 2px dotted red
+}
+
+.display-table{
+  display: table;
+  width: 100%;
+  padding: 0;
+}
+
+.display-table-row{
+  display: table-row;
+}
+
+.display-table-cell{
+  display: table-cell;
+  float: none !important;
+}
