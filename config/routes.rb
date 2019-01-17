@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   get 'home/index'
   get 'home/home'
   get 'home/clear_employee'
+  post 'home/time_in_user'
   post 'home/validate_login'
 
   get 'admin', to: "dashboard#index"

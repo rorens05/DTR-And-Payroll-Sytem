@@ -4,7 +4,9 @@ class AttendancesController < ApplicationController
   # GET /attendances
   # GET /attendances.json
   def index
+    @day_types = DayType.all
     @attendances = Attendance.all
+    @day_id = params[:day_id] 
   end
 
   # GET /attendances/1
@@ -15,10 +17,14 @@ class AttendancesController < ApplicationController
   # GET /attendances/new
   def new
     @attendance = Attendance.new
+    @employees = Employee.all
+    @day_types = DayType.all
   end
 
   # GET /attendances/1/edit
   def edit
+    @employees = Employee.all
+    @day_types = DayType.all
   end
 
   # POST /attendances

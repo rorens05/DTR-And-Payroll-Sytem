@@ -6,6 +6,9 @@
     </span>
   </a>
   <span class="title">
+    <% if @employee_name.present? %>
+      Welcome <%= @employee_name %>
+    <% end %>
     <%= link_to 'Login as Admin', access_login_path %>
   </span>
 </nav>

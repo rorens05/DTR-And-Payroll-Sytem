@@ -1,2 +1,42 @@
-<h1>Home#home</h1>
-<p>Find me in app/views/home/index.html.erb</p>
+
+<div class="jumbotron">
+  <h1 class="display-3">Javascript test</h1>
+   <p id="hello" class="box" onClick="showAlert();" onMouseOver="this.style.color = 'red';">sadfasdf</p>
+   <a href="#" onClick="showAlert();">show alert</a>
+   <input type="text" id="something" onClick="display();">
+
+  <table id='sampleTable' class="model-information">
+    <tr><th>sample header1</th><th>sample header2</th></tr>
+    <tr><td>sample data</td><td>sample data</td></tr>
+  </table>
+</div>
+
+<div class="jumbotron background-white">
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <div class="jumbotron ">
+        <div class="home-image">
+
+         
+            <% if @employee %>          
+              <%= image_tag @employee.image, id: "logoimage" %>
+              <h1 id="welcome"><%= @employee.name %></h1>
+            <% else %>
+              <img src="/images/logo.png" alt="" >
+              <h1 id="welcome">Please Swipe your card</h1>
+            <% end %>
+
+            <%= render 'notice' %>
+          
+          <%= form_tag('/home/time_in_user') do -%>
+            <input type="text" name="rfid" id="rfid" autofocus >
+            <div><%= submit_tag 'Save' %></div>
+          <% end %>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
