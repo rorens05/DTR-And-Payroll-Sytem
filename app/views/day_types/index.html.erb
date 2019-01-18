@@ -15,7 +15,7 @@
   <tbody>
     <% @day_types.each do |day_type| %>
       <tr>
-        <td><%= day_type.regular ? "Regular Day" : "Holiday" %></td>
+        <td><%= day_type.regular ? "Regular Day" : "Holiday"%></td>
         <td><%= day_type.date_created %></td>
         <td><%= day_type.user_id %></td>
         <td><%= link_to 'Show', day_type %></td>

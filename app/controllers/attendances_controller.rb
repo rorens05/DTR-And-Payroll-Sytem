@@ -1,12 +1,21 @@
 class AttendancesController < ApplicationController
   before_action :set_attendance, only: [:show, :edit, :update, :destroy]
 
+
   # GET /attendances
   # GET /attendances.json
   def index
-    @day_types = DayType.all
-    @attendances = Attendance.all
-    @day_id = params[:day_id] 
+    @day_types = DayType.sorted
+
+    if params[:day_id] 
+      @attendances = Attendance.attendance_by_date(params[:day_id])
+      @day_id = params[:day_id].to_i
+    else
+      @day_id = @day_types.first.id
+      @attendances = Attendance.attendance_by_date(@day_id)
+    end
+
+    
   end
 
   # GET /attendances/1
@@ -18,7 +27,7 @@ class AttendancesController < ApplicationController
   def new
     @attendance = Attendance.new
     @employees = Employee.all
-    @day_types = DayType.all
+    @day_types = DayType.sorted
   end
 
   # GET /attendances/1/edit
@@ -32,15 +41,23 @@ class AttendancesController < ApplicationController
   def create
     @attendance = Attendance.new(attendance_params)
 
-    respond_to do |format|
-      if @attendance.save
-        format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
-        format.json { render :show, status: :created, location: @attendance }
-      else
-        format.html { render :new }
-        format.json { render json: @attendance.errors, status: :unprocessable_entity }
-      end
+    found_attendance = Attendance.all.where(day_type: @attendance.day_type, employee: @attendance.employee)
+    if found_attendance.present?
+      redirect_to new_attendance_path 
+      flash[:notice] = 'User already has attendance'
+    else
+      respond_to do |format|
+        if @attendance.save
+          format.html { redirect_to @attendance, notice: 'Attendance was successfully created.' }
+          format.json { render :show, status: :created, location: @attendance }
+        else
+          format.html { render :new }
+          format.json { render json: @attendance.errors, status: :unprocessable_entity }
+        end
+      end      
     end
+
+    
   end
 
   # PATCH/PUT /attendances/1
@@ -66,6 +83,7 @@ class AttendancesController < ApplicationController
       format.json { head :no_content }
     end
   end
+
 
   private
     # Use callbacks to share common setup or constraints between actions.

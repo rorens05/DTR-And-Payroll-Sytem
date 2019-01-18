@@ -31,7 +31,7 @@ function getChar(event){
 function dayTypeChange(event){
   var sel = document.getElementById("dayselect");
   var selectValue = sel.options[sel.selectedIndex].value;
-  alert(selectValue);
+  //alert(selectValue);
   window.location.href = "/attendances?day_id=" + selectValue;
 
 };

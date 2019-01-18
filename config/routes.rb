@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'home#login' 
 
+
   get 'home/login'
   get 'home/index'
   get 'home/home'

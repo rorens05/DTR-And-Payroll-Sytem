@@ -7,7 +7,7 @@
   <select name="day_id" id="dayselect" class="form-control margin-normal" onchange="dayTypeChange();">
     <% @day_types.each do |d| %>
       <% if @day_id.present? %>
-        <% if @day_id.to_i != d.id.to_i %>          
+        <% if @day_id != d.id %>          
           <option value="<%= d.id %>"> <%= d.date_created.strftime("%A, %B %e, %Y")  %> </option>
         <% else %>
           <option value="<%= d.id %>" selected > <%= d.date_created.strftime("%A, %B %e, %Y") %> </option>
@@ -36,8 +36,8 @@
           <td><%= link_to attendance.employee.name, employee_path(attendance.employee) %></td>
           <td><%= attendance.time_in.strftime("%I:%M %p") %></td>
           <td><%= attendance.time_out.present? ? attendance.time_out.strftime("%I:%M %p") : "" %></td>
-          <td><%= attendance.time_in.strftime("%B %d, %Y") %></td>
-          <td><%= attendance.day_type %></td>
+          <td><%= attendance.day_type_name.date_created.strftime("%B %d, %Y") %></td>
+          <td><%= attendance.day_type_name.regular ? "Regular Day" : "Holiday" %></td>
           <td><%= link_to 'Show', attendance %></td>
           <td><%= link_to 'Edit', edit_attendance_path(attendance) %></td>
           <td><%= link_to 'Destroy', attendance, method: :delete, data: { confirm: 'Are you sure?' } %></td>
@@ -46,6 +46,7 @@
     </tbody>
   </table>
 <%= link_to 'New Attendance', new_attendance_path, class: "btn btn-primary right margin-normal"%>
+<%# link_to 'Summary', attendance_summary_path, class: "btn btn-warning right margin-normal"%>
 
 
 </div>

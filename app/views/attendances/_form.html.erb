@@ -10,25 +10,28 @@
       </ul>
     </div>
   <% end %>
+  <% if flash[:notice].present? %>
+    <%= flash[:notice] %>
+  <% end %>
 
   <div class="field">
     <%= form.label :time_in %>
-    <%= form.datetime_select :time_in %>
+    <%= form.time_select :time_in %>
   </div>
 
   <div class="field">
     <%= form.label :time_out %>
-    <%= form.datetime_select :time_out %>
+    <%= form.time_select :time_out %>
   </div>
 
   <div class="field">
     <%= form.label :employee_id %>
-    <%= form.select :employee_id, options_from_collection_for_select(@employees, :id, :name, :id) %>
+    <%= form.select :employee_id, options_from_collection_for_select(@employees, :id, :name, attendance.employee_id)%>
   </div>
 
   <div class="field">
     <%= form.label :day_type %>
-    <%= form.select :day_type, options_from_collection_for_select(@day_types, :id, :date_created.to_s) %>
+    <%= form.select :day_type, options_from_collection_for_select(@day_types, :id, :date_created, attendance.day_type) %>
   </div>
 
   <div class="actions">

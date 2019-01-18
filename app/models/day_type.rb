@@ -1,10 +1,9 @@
 class DayType < ApplicationRecord
   belongs_to :employee, foreign_key: 'user_id'
+  has_many :attendances
   
-  after_initialize :default_values
+  scope :sorted, -> {order(id: :desc)}
 
   private
-    def default_values
-      self.regular ||= true
-    end
+    
 end
