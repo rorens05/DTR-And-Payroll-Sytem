@@ -33,7 +33,13 @@ function dayTypeChange(event){
   var selectValue = sel.options[sel.selectedIndex].value;
   //alert(selectValue);
   window.location.href = "/attendances?day_id=" + selectValue;
+};
 
+function monthChanged(event){
+  var sel = document.getElementById("start");
+  var selectValue = sel.value;
+  alert(selectValue);
+  window.location.href = "/summary/index?month=" + selectValue;
 };
 
 

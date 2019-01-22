@@ -1,3 +1,8 @@
+
+//colors
+
+
+//default
 body, html{
   margin:0;
   border: 1px dotted white;
@@ -49,6 +54,11 @@ body, html{
 
 .notice{
   color:red;
+}
+
+.overflow-auto{
+  overflow: auto;
+  widows: 100%;
 }
 
 .background-white{
@@ -210,3 +220,16 @@ table.model-information th{
 .login p{
   color: red;
 }
+
+.dashboard-box{
+  border: 1px solid gray;
+  text-align: right;
+  margin: 5px;
+  padding: 10px 30px;
+  color: gray
+}
+
+.dashboard-box h1{
+  font-weight: bold;
+}
+

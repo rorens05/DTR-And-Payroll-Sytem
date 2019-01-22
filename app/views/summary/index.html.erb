@@ -1,0 +1,100 @@
+<p id="notice"><%= notice %></p>
+<h1>Dashboard</h1><hr>
+
+<div class="container-fluid ">
+  <div class="row ">
+    <div class="col-lg-3">
+      <div class="dashboard-box ">
+        <h5>No. of Employees</h5><hr>
+        <h1 class="text-primary"><%= @employees.count %></h1>
+      </div>      
+  </div>
+  <div class="col-lg-3">
+      <div class="dashboard-box ">
+        <h5>Present Employees</h5><hr>
+        <h1 class="text-success">10</h1>
+      </div>      
+  </div>
+  <div class="col-lg-3">
+      <div class="dashboard-box ">
+        <h5>Late Employees</h5><hr>
+        <h1 class="text-warning">10</h1>
+      </div>      
+  </div>
+  <div class="col-lg-3">
+      <div class="dashboard-box ">
+        <h5>Absent Employees</h5><hr>
+        <h1 class="text-danger">10</h1>
+      </div>      
+  </div>  
+</div>
+
+  <div class="row margin-top-increase">
+    <!-- summary -->
+    <div class="col-lg-8">
+      <div class="jumbotron">
+        <h2>Summary of Attendance</h2>
+        <label for="start">Select month:</label>
+        <input onchange="monthChanged();" type="month" id="start" name="month"
+        value="<%= @time.strftime("%Y-%m") %>" class="form-control"><hr>
+
+        <div class="overflow-auto">
+          <h3>No of Working Days: <%= @day_types.count %></h3>
+          <table class="model-information box">
+            <thead>
+              <tr>
+                <th>Employee</th>
+                <th>Present</th>
+                <th>Overtime</th>
+                <th>Absent</th>
+                <th>Late</th>
+                <th>Undertime</th>
+              </tr>
+            </thead>
+              
+              
+              <% @employees.each do |employee| %>
+
+                <% present = 0%>
+                <% overtime = 0%>
+                <% absent = 0%>
+                <% late = 0%>
+                <% undertime = 0%>
+
+                <% @day_types.each do |day_type| %>
+                  <% employee.attendances.each do |a| %>
+                    <% if a.day_type == day_type.id %>
+                      <% present = present + 1 %>
+                    <% end %>
+
+                  <% end %>
+                <% end %>
+
+              <tr>
+                <td><%= employee.name %></td> 
+                <td><%= present %></td>  
+                <td><%= overtime %></td>  
+                <td><%= @day_types.count - present%></td>  
+
+              </tr>
+              <% end %>
+            <tbody>
+              
+            </tbody>
+          </table>
+        </div>
+        
+      </div>
+    </div>
+
+    <!-- employee list -->
+    <div class="col-lg-4 ">
+      <div class="jumbotron">
+        <h2>Present Employee Today</h2>
+
+        
+      </div>
+    </div>
+
+    
+  </div>

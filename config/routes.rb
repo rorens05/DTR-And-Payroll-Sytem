@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'summary/index'
   root 'home#login' 
 
 

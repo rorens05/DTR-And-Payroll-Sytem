@@ -54,6 +54,12 @@ class DayTypesController < ApplicationController
   # DELETE /day_types/1
   # DELETE /day_types/1.json
   def destroy
+    
+    attendance = Attendance.all.where(day_type: @day_type.id)
+    attendance.each do |a|
+      a.destroy
+    end
+
     @day_type.destroy
     respond_to do |format|
       format.html { redirect_to day_types_url, notice: 'Day type was successfully destroyed.' }
