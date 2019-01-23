@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_11_171907) do
+ActiveRecord::Schema.define(version: 2019_01_22_171647) do
 
   create_table "active_storage_attachments", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -43,8 +43,8 @@ ActiveRecord::Schema.define(version: 2019_01_11_171907) do
   end
 
   create_table "attendances", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.timestamp "time_in"
-    t.timestamp "time_out"
+    t.time "time_in"
+    t.time "time_out"
     t.integer "employee_id"
     t.integer "day_type"
     t.datetime "created_at", null: false
@@ -81,6 +81,14 @@ ActiveRecord::Schema.define(version: 2019_01_11_171907) do
     t.time "end_time"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+  end
+
+  create_table "employee_statuses", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "status"
+    t.bigint "employee_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["employee_id"], name: "index_employee_statuses_on_employee_id"
   end
 
   create_table "employees", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -133,4 +141,5 @@ ActiveRecord::Schema.define(version: 2019_01_11_171907) do
   end
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
+  add_foreign_key "employee_statuses", "employees"
 end

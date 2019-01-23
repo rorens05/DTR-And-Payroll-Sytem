@@ -30,11 +30,12 @@ body, html{
   
 }
 
-.hidden-rfids{
+.hidden-rfid{
   overflow: hidden;
   border: 1px solid white;
   height: 1px;
   width: 1px;
+  opacity: 0;
 }
 
 .margin-top-increase{
@@ -63,6 +64,15 @@ body, html{
 
 .background-white{
   background-color: white !important;
+}
+
+.fit{
+  margin: 0 !important;
+  padding-top: 1em !important;
+}
+
+.clearfix{
+  overflow: auto;
 }
 
 .sidebar h3{
@@ -95,8 +105,8 @@ body, html{
 }
 
 .sidebar ul li a:hover{
-  background-color: #01FF70;
-  color: black;
+  background-color: rgb(144, 135, 226);
+  color: white;
 }
 
 .content{
@@ -175,7 +185,7 @@ table.model-information tr:hover{
 }
 
 table.model-information th{
-  background-color: green;
+  background-color: rgb(82, 59, 211);
   color: white;
 }
 
@@ -233,3 +243,32 @@ table.model-information th{
   font-weight: bold;
 }
 
+div.attendance-info{
+  padding: 0 10px 0 10px;
+  display: inline-block;
+  width: 70%;
+}
+
+.field label{
+  width: 100px;
+}
+
+.show-details{
+  width: 100%;
+  max-width: 800px;
+  border: 1px solid gray;
+  margin: 20px auto;
+  padding: 50px;
+  box-shadow: 5px 5px 2px grey;
+}
+
+.show-details img{
+  width: 200px;
+  height: auto;
+  float: left;
+  margin: 20px;
+}
+.show-details strong{
+  display: inline-block;
+  width: 100px;
+}

@@ -1,23 +1,12 @@
+<%= render 'nav' %>
 
-<div class="jumbotron">
-  <h1 class="display-3">Javascript test</h1>
-   <p id="hello" class="box" onClick="showAlert();" onMouseOver="this.style.color = 'red';">sadfasdf</p>
-   <a href="#" onClick="showAlert();">show alert</a>
-   <input type="text" id="something" onClick="display();">
 
-  <table id='sampleTable' class="model-information">
-    <tr><th>sample header1</th><th>sample header2</th></tr>
-    <tr><td>sample data</td><td>sample data</td></tr>
-  </table>
-</div>
-
-<div class="jumbotron background-white">
+<div class="jumbotron background-white fit">
   <div class="row">
-    <div class="col-md-4 offset-md-4">
-      <div class="jumbotron ">
-        <div class="home-image">
 
-         
+    <div class="col-md-4">
+      <div class="jumbotron ">
+        <div class="home-image">         
             <% if @employee %>          
               <%= image_tag @employee.image, id: "logoimage" %>
               <h1 id="welcome"><%= @employee.name %></h1>
@@ -32,10 +21,62 @@
             <input type="text" name="rfid" id="rfid" autofocus >
             <div><%= submit_tag 'Save' %></div>
           <% end %>
-
         </div>
       </div>
     </div>
+
+    <div class="col-md-8 ">
+      <div class="jumbotron clearfix">
+
+        <div class="row ">
+            <div class="col-lg-3">
+              <div class="dashboard-box ">
+                <h5>No. of Employees</h5><hr>
+                <h1 class="text-primary"><%= @employees.count %></h1>
+              </div>      
+          </div>
+          <div class="col-lg-3">
+              <div class="dashboard-box ">
+                <h5>Present Employees</h5><hr>
+                <h1 class="text-success"><%= @attendance_today.count %></h1>
+              </div>      
+          </div>
+          <div class="col-lg-3">
+              <div class="dashboard-box ">
+                <h5>Late Employees</h5><hr>
+                <h1 class="text-warning"><%= @late_employees %></h1>
+              </div>      
+          </div>
+          <div class="col-lg-3">
+              <div class="dashboard-box ">
+                <h5>Absent Employees</h5><hr>
+                <h1 class="text-danger"><%= @employees.count - @attendance_today.count %></h1>
+              </div>      
+          </div>  
+        </div>
+        <hr>
+        <h2>Present Employees Today</h2>
+          <% @attendance_today.each do |attendance| %>
+
+            <div class="card" style="width: 15rem;float: left; margin: 10px 5px;text-align: center  ">
+              <% if attendance.employee.image.attachment.present? %>
+                  <%= image_tag(attendance.employee.image, style: "width: 80%; height: auto; display:block; margin: 10px auto") %>
+              <% end %>
+              <div class="card-body">
+                <h5 class="card-title"><%= attendance.employee.name %></h5><hr>
+                <h6>
+                  Time in: <%= attendance.time_in.strftime("%I:%M %p") %> <br>
+                  Time out: <%= attendance.time_out ? attendance.time_out.strftime("%I:%M %p") : "No timed out yet" %> 
+                </h6>
+              </div>
+            </div>          
+          <% end %>
+              
+        
+
+      </div>
+    </div>
+
   </div>
 </div>
 

@@ -1,23 +1,24 @@
+<div class="show-details">
 <p id="notice"><%= notice %></p>
 
 <p>
   <strong>Time in:</strong>
-  <%= @attendance.time_in %>
+  <%= @attendance.time_in.strftime("%I:%M%p") %>
 </p>
 
 <p>
   <strong>Time out:</strong>
-  <%= @attendance.time_out %>
+  <%= @attendance.time_out.strftime("%I:%M%p") %>
 </p>
 
 <p>
   <strong>Employee:</strong>
-  <%= @attendance.employee_id %>
+  <%= @attendance.employee.name %>
 </p>
 
 <p>
   <strong>Day type:</strong>
-  <%= @attendance.day_type %>
+  <%= @attendance.day_type_name.date_created.to_s(:long) %>
 </p>
 
 <%= link_to 'Edit', edit_attendance_path(@attendance) %> |

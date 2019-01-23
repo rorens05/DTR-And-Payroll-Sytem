@@ -1,3 +1,4 @@
+<div class="jumbotron form-center">
 <%= form_with(model: attendance, local: true) do |form| %>
   <% if attendance.errors.any? %>
     <div id="error_explanation">
@@ -38,3 +39,4 @@
     <%= form.submit %>
   </div>
 <% end %>
+</div>

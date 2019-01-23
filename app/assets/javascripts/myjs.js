@@ -4,20 +4,23 @@ $(document).ready(function () {
   $('#rfidinput').keyup(function () { 
     var value = $("#rfidinput").val();
     //alert(value)
+
   });
 
  
 }); 
 
 function changeImage(){
-  setInterval(returnToLogo,3000)
+  setInterval(returnToLogo,4000)
 }
 
 function returnToLogo(){
-  $("#logoimage").attr("src","/images/logo.png");
-  $("#welcome").text("Please Swipe your card");
-  $("#mynotice").text("");
-  console.log("yeah");
+  
+    $("#logoimage").attr("src","/images/logo.png");
+    $("#welcome").text("Please Swipe your card");
+    $("#mynotice").text("");
+    console.log("yeah");
+    //window.location.href = "/home/home";
 }
 
 function getChar(event){
@@ -38,7 +41,7 @@ function dayTypeChange(event){
 function monthChanged(event){
   var sel = document.getElementById("start");
   var selectValue = sel.value;
-  alert(selectValue);
+  //alert(selectValue);
   window.location.href = "/summary/index?month=" + selectValue;
 };
 

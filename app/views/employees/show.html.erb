@@ -1,58 +1,58 @@
-<p id="notice"><%= notice %></p>
-<h1><%= @employee.name %></h1><hr>
+  <div class="show-details">
+  <p id="notice"><%= notice %></p>
+  <h1><%= @employee.name %></h1><hr>
 
 
-<% if @employee.image.attachment.present? %>
+  <% if @employee.image.attachment.present? %>
+      <%= image_tag(@employee.image) %>
+  <% end %>
+
   <p>
-    <%= image_tag(@employee.image, style: "width: 200px; height: auto") %>
+    <strong>Address:</strong>
+    <%= @employee.address %>
   </p>
-<% end %>
 
-<p>
-  <strong>Address:</strong>
-  <%= @employee.address %>
-</p>
+  <p>
+    <strong>Gender:</strong>
+    <%= @employee.gender %>
+  </p>
 
-<p>
-  <strong>Gender:</strong>
-  <%= @employee.gender %>
-</p>
+  <p>
+    <strong>Contact no:</strong>
+    <%= @employee.contact_no %>
+  </p>
 
-<p>
-  <strong>Contact no:</strong>
-  <%= @employee.contact_no %>
-</p>
+  <p>
+    <strong>Email:</strong>
+    <%= @employee.email %>
+  </p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @employee.email %>
-</p>
-
-<p>
-  <strong>Position:</strong>
-  <%= @employee.position %>
-</p>
+  <p>
+    <strong>Position:</strong>
+    <%= @employee.position %>
+  </p>
 
 
-<p>
-  <strong>Rfid code:</strong>
-  <%= @employee.rfid_code %>
-</p>
+  <p>
+    <strong>Rfid code:</strong>
+    <%= @employee.rfid_code %>
+  </p>
 
-<p>
-  <strong>Hire date:</strong>
-  <%= @employee.hire_date %>
-</p>
+  <p>
+    <strong>Hire date:</strong>
+    <%= @employee.hire_date %>
+  </p>
 
-<p>
-  <strong>Salary type:</strong>
-  <%= link_to @employee.salary_type.name, salary_type_path(@employee.salary_type) %>
-</p>
+  <p>
+    <strong>Salary type:</strong>
+    <%= link_to @employee.salary_type.name, salary_type_path(@employee.salary_type) %>
+  </p>
 
-<p>
-  <strong>Department:</strong>
-  <%= link_to @employee.department.name, department_path(@employee.department) %>
-</p>
+  <p>
+    <strong>Department:</strong>
+    <%= link_to @employee.department.name, department_path(@employee.department) %>
+  </p>
 
-<%= link_to 'Edit', edit_employee_path(@employee) %> |
-<%= link_to 'Back', employees_path %>
+  <%= link_to 'Edit', edit_employee_path(@employee) %> |
+  <%= link_to 'Back', employees_path %>
+</div>
